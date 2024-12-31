@@ -90,7 +90,7 @@
     
                     <ul class="s-header__menu-links">
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="#" class="toggle">About</a> <!-- Ubah href menjadi # untuk mencegah navigasi -->
                             <ul class="sub-menu">
                                 <li><a href="about-1.html">About 1</a></li>
                                 <li><a href="about-2.html">About 2</a></li>
@@ -110,35 +110,49 @@
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             const toggleLink = document.querySelector('.toggle'); // Ambil elemen 'About'
+                            const subMenu = toggleLink.nextElementSibling; // Ambil sub-menu yang sesuai
                     
                             toggleLink.addEventListener('click', function(event) {
                                 event.preventDefault(); // Mencegah navigasi ke halaman lain
-                                const subMenu = this.nextElementSibling; // Ambil sub-menu yang sesuai
                     
                                 // Toggle tampilan sub-menu
-                                if (subMenu.style.display === 'block') {
-                                    subMenu.style.display = 'none';
+                                if (subMenu.style.visibility === 'visible') {
                                     subMenu.style.opacity = '0'; // Ubah opacity menjadi 0
-                                    subMenu.style.visibility = 'hidden'; // Ubah visibility menjadi hidden
+                                    subMenu.style.maxHeight = '0'; // Ubah max-height menjadi 0
+                                    setTimeout(() => {
+                                        subMenu.style.visibility = 'hidden'; // Sembunyikan sub-menu setelah transisi
+                                    }, 300); // Sesuaikan dengan durasi transisi
                                 } else {
-                                    subMenu.style.display = 'block';
+                                    subMenu.style.visibility = 'visible'; // Ubah visibility menjadi visible
+                                    subMenu.style.maxHeight = '500px'; // Atur max-height untuk transisi (sesuaikan dengan tinggi maksimum sub-menu)
                                     setTimeout(() => {
                                         subMenu.style.opacity = '1'; // Ubah opacity menjadi 1 setelah delay
-                                        subMenu.style.visibility = 'visible'; // Ubah visibility menjadi visible
                                     }, 10); // Delay kecil untuk transisi
                                 }
                             });
                     
                             // Menutup sub-menu jika klik di luar
                             document.addEventListener('click', function(event) {
+                                // Cek apakah klik terjadi di luar menu dan sub-menu
                                 if (!event.target.closest('.s-header__menu-links')) {
-                                    const subMenus = document.querySelectorAll('.sub-menu');
-                                    subMenus.forEach(menu => {
-                                        menu.style.display = 'none';
-                                        menu.style.opacity = '0'; // Ubah opacity menjadi 0
-                                        menu.style.visibility = 'hidden'; // Ubah visibility menjadi hidden
-                                    });
+                                    // Sembunyikan sub-menu jika klik di luar
+                                    if (subMenu.style.visibility === 'visible') {
+                                        subMenu.style.opacity = '0'; // Ubah opacity menjadi 0
+                                        subMenu.style.maxHeight = '0'; // Ubah max-height menjadi 0
+                                        setTimeout(() => {
+                                            subMenu.style.visibility = 'hidden'; // Sembunyikan sub-menu setelah transisi
+                                        }, 300); // Sesuaikan dengan durasi transisi
+                                    }
                                 }
+                            });
+                    
+                            // Menutup sub-menu jika mouse keluar dari area sub-menu
+                            subMenu.addEventListener('mouseleave', function() {
+                                subMenu.style.opacity = '0'; // Ubah opacity menjadi 0
+                                subMenu.style.maxHeight = '0'; // Ubah max-height menjadi 0
+                                setTimeout(() => {
+                                    subMenu.style.visibility = 'hidden'; // Sembunyikan sub-menu setelah transisi
+                                }, 300); // Sesuaikan dengan durasi transisi
                             });
                         });
                     </script>
