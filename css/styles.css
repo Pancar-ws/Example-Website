@@ -3992,6 +3992,44 @@ td:last-child {
 	fill: var(--color-3);
 }
 
+.sub-menu {
+    display: none; /* Sembunyikan sub-menu secara default */
+    position: absolute; /* Agar sub-menu muncul di bawah menu utama */
+    background-color: #333; /* Warna latar belakang sub-menu */
+    border: 1px solid #ccc; /* Batas sub-menu */
+    z-index: 1000; /* Pastikan sub-menu muncul di atas elemen lain */
+    padding: 10px; /* Tambahkan padding untuk ruang di dalam sub-menu */
+    border-radius: 5px; /* Tambahkan sudut melengkung */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Tambahkan transisi untuk efek halus */
+    opacity: 0; /* Mulai dengan opacity 0 */
+    visibility: hidden; /* Sembunyikan sub-menu */
+}
+
+.s-header__menu-links li:hover .sub-menu {
+    display: block; /* Tampilkan sub-menu saat hover pada menu utama */
+    opacity: 1; /* Ubah opacity menjadi 1 saat ditampilkan */
+    visibility: visible; /* Ubah visibility menjadi visible saat ditampilkan */
+}
+
+.s-header__menu-links li {
+    position: relative; /* Agar sub-menu dapat diposisikan relatif terhadap item menu */
+}
+
+.sub-menu li {
+    margin: 5px 0; /* Tambahkan margin antar item sub-menu */
+}
+
+.sub-menu li a {
+    color: #fff; /* Warna teks item sub-menu */
+    text-decoration: none; /* Hapus garis bawah */
+    padding: 5px 10px; /* Tambahkan padding untuk item sub-menu */
+    display: block; /* Buat item sub-menu menjadi blok agar lebih mudah diklik */
+}
+
+.sub-menu li a:hover {
+    background-color: #555; /* Warna latar belakang saat hover pada item sub-menu */
+}
 /* ------------------------------------------------------------------- 
  * responsive:
  * about

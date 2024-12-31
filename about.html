@@ -89,16 +89,59 @@
                 <nav class="s-header__nav">
     
                     <ul class="s-header__menu-links">
-                        <li><a href="about.html">About</a></li=>
-                        <li><a href="about-1.html">About</a></li>
+                        <li>
+                            <a href="about.html">About</a>
+                            <ul class="sub-menu">
+                                <li><a href="about-1.html">About 1</a></li>
+                                <li><a href="about-2.html">About 2</a></li>
+                                <li><a href="about-3.html">About 3</a></li>
+                                <li><a href="about-4.html">About 4</a></li>
+                            </ul>
+                        </li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="blog.html">Journal</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                    </ul> <!-- s-header__menu-links -->
+                    </ul>
 
                     <div class="s-header__contact">
                         <a href="contact.html" class="btn btn--primary s-header__contact-btn">Let's Rejoice Togethe</a>                        
                     </div> <!-- s-header__contact -->
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const toggleLink = document.querySelector('.toggle'); // Ambil elemen 'About'
+                    
+                            toggleLink.addEventListener('click', function(event) {
+                                event.preventDefault(); // Mencegah navigasi ke halaman lain
+                                const subMenu = this.nextElementSibling; // Ambil sub-menu yang sesuai
+                    
+                                // Toggle tampilan sub-menu
+                                if (subMenu.style.display === 'block') {
+                                    subMenu.style.display = 'none';
+                                    subMenu.style.opacity = '0'; // Ubah opacity menjadi 0
+                                    subMenu.style.visibility = 'hidden'; // Ubah visibility menjadi hidden
+                                } else {
+                                    subMenu.style.display = 'block';
+                                    setTimeout(() => {
+                                        subMenu.style.opacity = '1'; // Ubah opacity menjadi 1 setelah delay
+                                        subMenu.style.visibility = 'visible'; // Ubah visibility menjadi visible
+                                    }, 10); // Delay kecil untuk transisi
+                                }
+                            });
+                    
+                            // Menutup sub-menu jika klik di luar
+                            document.addEventListener('click', function(event) {
+                                if (!event.target.closest('.s-header__menu-links')) {
+                                    const subMenus = document.querySelectorAll('.sub-menu');
+                                    subMenus.forEach(menu => {
+                                        menu.style.display = 'none';
+                                        menu.style.opacity = '0'; // Ubah opacity menjadi 0
+                                        menu.style.visibility = 'hidden'; // Ubah visibility menjadi hidden
+                                    });
+                                }
+                            });
+                        });
+                    </script>
     
                 </nav> <!-- end s-header__nav -->
 
@@ -129,9 +172,26 @@
                         <div class="column xl-6 lg-12">
                             <h2 class="text-display-title">Some inspiring words to describe yourself</h2>
                         </div>
+                        <style>
+                            .lead {
+                                text-align: justify; /* Meratakan teks */
+                                margin: 0; /* Menghapus margin default */
+                            }
+                            .column {
+                                padding: 20px; /* Menambahkan padding untuk ruang */
+                            }
+                        </style>
+                        
                         <div class="column xl-6 lg-12 u-flexitem-x-right">
                             <p class="lead">
-                            Haiiii barbieee!!! Akuu jejee bana, tapi kalian tau gaksi siapa nama asli aku? Pastinya tau dong yaa! ya, Ahmad Zaki Albana itu nama asli aku yang dikasih orang tua ku pada 08 April 2006 lalu di RS setiabudi Jakarta Barat. Tapi, sebenarnya bukan orang tua ku juga sih yang memberi nama itu, ya! kakek aku. Ayah dari seorang perempuan yang melahirkan aku, dan sekarang dia adalah ibu aku, dan sudah 18 tahun berlalu aku memanggil dia umi. Umi aku tu wanita yang bawel hehe, cocok yah dengan profesinya sekarang, ya, seorang guru PAUD. Dan tanpa ayah, takkan ada aku dong! Abi, Abi aku seorang pria yang kuatt, mau apa aja untuk keluarganya, dan sekarang dia masih menjadi sosok yang tangguh untuk keluarganya. 
+                                Haiiii barbieee!!! Akuu jejee bana, tapi kalian tau gaksi siapa nama asli aku? Pastinya tau dong yaa! ya, Ahmad Zaki Albana itu nama asli aku yang dikasih orang tua ku pada 08 April 2006 lalu di RS setiabudi Jakarta Barat. Tapi, sebenarnya bukan orang tua ku juga sih yang memberi nama itu, ya! kakek aku. Ayah dari seorang perempuan yang melahirkan aku, dan sekarang dia adalah ibu aku, dan sudah 18 tahun berlalu aku memanggil dia umi. Umi aku tu wanita yang bawel hehe, cocok yah dengan profesinya sekarang, ya, seorang guru PAUD. Dan tanpa ayah, takkan ada aku dong! Abi, Abi aku seorang pria yang kuatt, mau apa aja untuk keluarganya, dan sekarang dia masih menjadi sosok yang tangguh untuk keluarganya.
+                            </p>
+                            <br>
+                            <p class="lead"> <!-- Tambahkan kelas 'lead' untuk paragraf kedua juga -->
+                                Aku juga punya adik, Fail itu adik aku dia lahir 2015 lalu, karna nama dia tufail, aku sering nge jokes depan dia dengan panggilan "Tumail" hehee. 
+                                Keliling Dunia adalah suatu impian besar setiap orang kurasa? dan aku salah satunya yang akan melakukan itu dimasa depan nanti. 
+                                Sebagai seorang yang cinta dengan kedua ibunya, eh wait? 2 ibu? ya! Nicki Minaj juga ibu kuu. Siapa sih "Nicki Minaj?" cari aja di google. 
+                                Keliling dunia dengan world tour seperti nicki minaj lah yang aku impikan sebenarnya. Menjadi rapper terkenal.
                             </p>
                         </div>                       
                     </div> <!-- end pageintro -->   
@@ -148,85 +208,71 @@
                     </div> <!-- end pagemedia -->
 
                     <div class="row width-narrower pagemain">
+                        
                         <div class="column xl-12"> 
 
                             <h2>How I Got Here</h2>
-                            <p>
-                            Eaque temporibus culpa perferendis expedita assumenda mollitia magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit
-                            facilis voluptates voluptatum animi numquam quas ea praesentium quaerat maxime sunt odit inventore itaque est et autem sequi nulla. 
-                            Distinctio obcaecati nesciunt asperiores dolorum tenetur voluptates, nemo alias doloremque. Quos cumque ipsum laudantium odio vero 
-                            aut odit nostrum aliquam? Nostrum in facilis, minus fuga quasi voluptas explicabo possimus incidunt, expedita tempora eius rem nobis sequi. 
-                            Doloribus esse sint suscipit quam nisi blanditiis voluptate explicabo.
+                            <style>
+                                .justified-text {
+                                    text-align: justify; /* Meratakan teks */
+                                    margin: 0; /* Menghapus margin default */
+                                    padding: 10px; /* Menambahkan padding untuk ruang */
+                                }
+                            </style>
+                            
+                            <p class="justified-text">
+                                Di setiap bulan yang berlalu, part yang paling aku suka lakukan adalah mencari video-video podcast untuk mengembangkan diri aku dan juga selalu mempelajari seputar bahasa Inggris untuk menunjang mimpiku. Hampir setiap bulan juga aku selalu menikmati hobiku, yaitu mendengarkan musik, makanya spotify wrapped ku slalu lulus rapor wkwkw!.
                             </p>
 
-                            <h2 class="u-add-bottom">My Values & Beliefs</h2>
-
-                            <div class="grid-list-items list-items">
-                                <div class="grid-list-items__item list-items__item u-remove-bottom">
-                                    <div class="list-items__item-header">
-                                        <h6 class="list-items__item-small-title">Consectetur</h6>
-                                    </div>
-                                    <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia accusamus consectetur adipisicing elit excepturi corrupti 
-                                    nam quae exercitationem cupiditate, provident ipsa delectus vero possimus reprehenderit quas ut officiis tempora voluptatum 
-                                    quibusdam consectetur commodi.
+                            <style>
+                                .content {
+                                    border: 1px solid #ccc; /* Garis batas kotak */
+                                    border-radius: 25px; /* Sudut kotak yang melengkung */
+                                    padding: 20px; /* Ruang di dalam kotak */
+                                    background-color: #f9f9f9; /* Warna latar belakang kotak */
+                                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+                                }
+                                .info-box {
+                                    margin-bottom: 20px; /* Jarak antara kotak info */
+                                }
+                                h2 {
+                                    margin-bottom: 15px; /* Jarak bawah untuk judul */
+                                }
+                                ul {
+                                    list-style-type: none; /* Menghapus bullet point */
+                                    padding: 0; /* Menghapus padding default */
+                                }
+                                li {
+                                    margin-bottom: 10px; /* Jarak antar item list */
+                                }
+                            </style>
+                            
+                            <div class="col-lg-8 content">
+                                <div class="info-box">
+                                    <h2>Bachelor Of English</h2>
+                                    <p class="fst-italic py-3">
+                                        Here is the full profile:
                                     </p>
-                                </div>
-                                <div class="grid-list-items__item list-items__item u-remove-bottom">
-                                    <div class="list-items__item-header">
-                                        <h6 class="list-items__item-small-title">Adipisicing</h6>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <ul>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Name:</strong> <span>Ahmad Zaki Albana</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>JAKARTA, 8 April 2006</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Religion:</strong> <span>Islam</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>Jl. Pagenjahan Kalierang Bumiayu Brebes Jawa Tengah </span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <ul>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>18</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+62 889-0294-6247</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>faalafailun@gmail.com</span></li>
+                                                <li><i class="bi bi-chevron-right"></i> <strong>Job:</strong> <span>College Student</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <p> 
-                                    Molestias, autem impedit culpa dolores excepturi, quidem unde ducimus, rerum commodi deserunt earum, minus voluptatum.
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe doloremque provident quas quae exercitationem laboriosam.
-                                    </p>
                                 </div>
-                                <div class="grid-list-items__item list-items__item u-remove-bottom">
-                                    <div class="list-items__item-header">
-                                        <h6 class="list-items__item-small-title">Doloremque</h6>
-                                    </div>
-                                    <p>
-                                    Mollitia accusamus consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisicing elit excepturi corrupti 
-                                    nam quae exercitationem cupiditate, provident ipsa delectus vero possimus reprehenderit quas ut officiis tempora voluptatum 
-                                    quibusdam consectetur commodi!
-                                    </p>
-                                </div>
-                                <div class="grid-list-items__item list-items__item u-remove-bottom">
-                                    <div class="list-items__item-header">
-                                        <h6 class="list-items__item-small-title">Assumenda</h6>
-                                    </div>
-                                    <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe doloremque provident quas quae exercitationem laboriosam. 
-                                    Molestias, autem? Impedit culpa dolores excepturi, quidem unde ducimus, rerum commodi deserunt earum, minus voluptatum?
-                                    </p>
-                                </div>
-                            </div> <!--grid-list-items -->
-
-                            <h2>Why Work With Me</h2>
-                            <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque temporibus culpa perferendis expedita assumenda mollitia magnam, 
-                            facilis voluptates voluptatum animi numquam quas ea praesentium quaerat maxime sunt odit inventore itaque est et autem sequi nulla. 
-                            Distinctio obcaecati nesciunt asperiores dolorum tenetur voluptates, nemo alias doloremque. Quos cumque ipsum laudantium odio vero aut 
-                            odit nostrum aliquam? Nostrum in facilis, minus fuga quasi voluptas explicabo possimus incidunt, expedita tempora eius rem nobis sequi. 
-                            Doloribus esse sint suscipit quam nisi blanditiis voluptate explicabo.
-                            </p>
-
-                            <p>
-                            Quibusdam quis autem voluptatibus earum vel ex error ea magni. Rerum quam quos. Aut asperiores sit mollitia. Rem neque et voluptatem 
-                            eos quia sed eligendi et. Eaque velit eligendi ut magnam. Cumque ducimus laborum doloribus facere maxime vel earum quidem enim suscipit. 
-                            Numquam, corporis accusamus commodi saepe nostrum nesciunt nisi rem necessitatibus unde laboriosam molestias, quam ipsa voluptatum sed 
-                            ex cumque facilis assumenda maiores tempore reiciendis enim accusantium?
-                            </p>                   
-
-                            <h2>A Few More Words About Myself</h2>
-                            <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et assumenda debitis aut quidem ad voluptates quibusdam soluta temporibus, 
-                            eveniet nobis tempore sunt, provident sapiente accusamus dignissimos voluptatum fugiat nulla dicta nihil molestiae aspernatur error in. 
-                            Ut quo porro voluptatum delectus asperiores culpa non cum facere minima nesciunt assumenda, praesentium reprehenderit accusamus, quam 
-                            repellat nobis nemo? Ut magnam unde culpa pariatur possimus sunt fugiat ea maxime praesentium eaque quo odio sed eligendi harum dolor, 
-                            repellendus reprehenderit facere nihil quam. Saepe, magni.
-                            </p>
-
+                            </div>
                         </div> <!-- end grid-block-->
                     </div> <!-- end pagemain -->
 
@@ -365,6 +411,10 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="blog.html">Journal</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="about-1.html">About</a></li>
+                        <li><a href="about-2.html">About</a></li>
+                        <li><a href="about-3.html">About</a></li>
+                        <li><a href="about-4.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a></li>
                     </ul>
